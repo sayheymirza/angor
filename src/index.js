@@ -50,18 +50,22 @@ app.get('/api/v1/route', (req, res) => {
 });
 
 app.post('/api/v1/route', RequestValidator({
-    domain: {
-        type: "string"
-    },
-    host: {
-        type: "string"
-    },
-    port: {
-        type: "number",
-        convert: true,
-        min: 1,
-        max: 65535
+
+    body: {
+        domain: {
+            type: "string"
+        },
+        host: {
+            type: "string"
+        },
+        port: {
+            type: "number",
+            convert: true,
+            min: 1,
+            max: 65535
+        }
     }
+
 }, (err, req, res, next) => {
     if (err) {
         return res.status(401).json({
@@ -111,8 +115,10 @@ app.post('/api/v1/route', RequestValidator({
 });
 
 app.delete('/api/v1/route', RequestValidator({
-    domain: {
-        type: "string"
+    body: {
+        domain: {
+            type: "string"
+        }
     }
 }, (err, req, res, next) => {
     if (err) {
