@@ -1,4 +1,4 @@
-const TRAEFIK_CERT_RESOLVER = progress.env.TRAEFIK_CERT_RESOLVER ?? 'cert';
+const TRAEFIK_CERT_RESOLVER = process.env.TRAEFIK_CERT_RESOLVER ?? 'cert';
 
 module.exports = (input = []) => {
     let http_routers = {};
