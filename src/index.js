@@ -16,7 +16,9 @@ app.use(express.json());
 
 app.get('/api/v1/traefik/v3/provider', (req, res) => {
     const data = database.load();
-    return format(data);
+    const result = format(data);
+
+    res.json(result);
 });
 
 app.use((req, res, next) => {
