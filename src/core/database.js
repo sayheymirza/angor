@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const DATABASE_FILE_PATH = path.join(__dirname, "..", "..", 'database.json');
+const DATABASE_FILE_PATH = path.join(__dirname, '../..', process.env.DATABASE_FILE_PATH ?? 'database.json');
 
 if (fs.existsSync(DATABASE_FILE_PATH) == false) {
-    fs.writeFileSync(DATABASE_FILE_PATH, JSON.stringify([], null, 2));
+    fs.writeFileSync(DATABASE_FILE_PATH, JSON.stringify([], null, 2), 'utf-8');
 }
 
 module.exports = {

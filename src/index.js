@@ -167,6 +167,27 @@ app.delete('/api/v1/route', RequestValidator({
     });
 });
 
+app.get('/', (req, res) => {
+    res.json({
+        status: true,
+        code: 200,
+        i18n: 'WELCOME',
+        message: 'Welcome to Angor',
+        data: {
+            version: '1.0.0',
+        }
+    });
+});
+
+app.use((req, res) => {
+    res.status(404).json({
+        status: false,
+        code: 404,
+        i18n: 'NOT_FOUND',
+        message: 'Not found',
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`Angor started on port ${PORT}`);
 });
